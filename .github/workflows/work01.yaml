@@ -1,17 +1,28 @@
-on: push
-name: deploy
+name: ci
+
+on:
+  push:
+    branches:
+      - 'master'
+
 jobs:
-  build-and-push:
-    name: build and push image
+  docker:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - name: build and push to docker
-      uses: docker/build-push-action@v2
-      with:
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
-        repository: ${{ github.repository }}
-        tag_with_ref: true
-        tag_with_sha: true
-        tags: ${{ github.sha }}
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_TOKEN }}
+      - name: Build and push
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: user/app:${{ github.sha }}
