@@ -16,6 +16,10 @@ spec:
     spec:
       containers:
       - name: nginx
+<<<<<<< HEAD
         imagen: lbrines/nginx:f22848ea4a95748aa643351bbe207e8caa892012
+=======
+        imagen: nginx:a0e6acc1f522825602ab4a13b53554765582ba9a
+>>>>>>> 02357d941ec9fbad03a3739143f85571860ae4c3
         ports:
         - containerPort: 80
