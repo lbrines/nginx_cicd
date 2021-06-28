@@ -17,7 +17,7 @@ spec:
       containers:
       - name: nginx
 <<<<<<< HEAD
-        imagen: lbrines/nginx:f22848ea4a95748aa643351bbe207e8caa892012
+        imagen: lbrines/nginx:285adf65a6bb4cf9d9c2e2525f7b8d066e2cab66
 =======
         imagen: nginx:a0e6acc1f522825602ab4a13b53554765582ba9a
 >>>>>>> 02357d941ec9fbad03a3739143f85571860ae4c3
