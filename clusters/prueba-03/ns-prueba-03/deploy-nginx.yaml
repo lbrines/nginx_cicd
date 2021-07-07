@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: lbrines/nginx-prueba03:88b8686393b54301a5d9b24a174415393e5c7ea4
+        image: lbrines/nginx-prueba03:97d59a800d9631be3010d1645cbf502bb703a036
         ports:
         - containerPort: 80
